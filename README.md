@@ -39,7 +39,7 @@ To guarantee that every participant faces the exact same series of challenges, a
 
 ## 📂 Project Structure
 
-\`\`\`text
+```text
 HumanExperimentConfig/
 │
 ├── index.html                 # Main Menu Orchestrator & Webhook payload builder
@@ -70,7 +70,7 @@ HumanExperimentConfig/
     ├── index.html
     └── js/
         └── driver_tpb_esi_v2_3.js # Patient profile and vitals generation
-\`\`\`
+```
 
 ---
 
@@ -85,8 +85,8 @@ When all four components are completed, the participant returns to the main `ind
 To run the experiments locally:
 1. Clone the repository.
 2. Serve the directory using a local web server to avoid CORS issues with module imports or local storage.
-   \`\`\`bash
+   ```bash
    python -m http.server 8000
-   \`\`\`
-3. Navigate to \`http://localhost:8000/index.html\` in your browser.
+   ```
+3. Navigate to `http://localhost:8000/index.html` in your browser.
 4. *Optional*: Append `?PROLIFIC_PID=test_user` to the URL to simulate a remote participant ID.
