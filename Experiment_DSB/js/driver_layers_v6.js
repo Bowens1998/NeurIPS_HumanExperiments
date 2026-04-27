@@ -369,6 +369,25 @@
         }
       }
       status.innerText = 'All trials complete. You can download the data.';
+      
+      const completeModal = document.getElementById('completeModal');
+      const autoReturnMsg = document.getElementById('autoReturnMsg');
+      
+      if (completeModal) {
+        completeModal.classList.add('active');
+        let countdown = 3;
+        autoReturnMsg.style.display = 'block';
+        autoReturnMsg.innerHTML = `Returning to main menu in <span style="font-weight:bold;">${countdown}</span> seconds...`;
+        
+        const timer = setInterval(() => {
+          countdown--;
+          autoReturnMsg.innerHTML = `Returning to main menu in <span style="font-weight:bold;">${countdown}</span> seconds...`;
+          if (countdown <= 0) {
+            clearInterval(timer);
+            window.location.href = '../index.html';
+          }
+        }, 1000);
+      }
     } catch (e) {
       console.error(e);
       status.innerText = 'Error during run: ' + e.message;
@@ -794,9 +813,7 @@
       showSurvey(why).then(async res => {
         trialLog.context_belief = res.context_belief;
 
-        const u = getControls();
-        const totalTrials = defaults.blocks * u.trials_per_block;
-        const isLastTrial = (runLog.trials.length >= totalTrials);
+        const isLastTrial = (runLog.trials.length >= 3);
 
         if (isLastTrial) {
           // Show Task Complete Modal

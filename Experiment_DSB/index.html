@@ -668,6 +668,19 @@
       }
     });
   </script>
-</body>
 
+  <!-- Task Complete Modal -->
+  <div id="completeModal" class="modal-overlay">
+    <div class="modal-card" style="text-align: center; max-width: 500px; height: auto;">
+      <div style="font-size: 48px; margin-bottom: 16px;">🚁</div>
+      <h2>Task Complete!</h2>
+      <p>Thank you for completing the Drone Navigation task. Your decisions have been recorded.</p>
+      <div id="saveStatus" style="font-weight:600; color:var(--primary); margin:24px 0;">Saving to database...</div>
+      <div id="waitMsg" style="color:var(--text-muted); font-size:14px; margin-top:16px;">
+        Please do not close this window.
+      </div>
+      <div id="autoReturnMsg" style="display:none; margin-top:12px; color:var(--text-muted); font-size:14px;"></div>
+    </div>
+  </div>
+</body>
 </html>
